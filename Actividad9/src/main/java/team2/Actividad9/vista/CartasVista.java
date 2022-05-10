@@ -11,7 +11,16 @@ import javax.swing.border.EmptyBorder;
 
 import team2.Actividad9.modelo.Carta;
 import team2.Actividad9.modelo.Partida;
-
+/**
+ * 
+ * Actividad9 - team2.Actividad9.vista - CartasVista
+ *
+ * @author Daniel Fernández Cacho
+ * @author Joan Hurtado García
+ * @author Jose Antonio González Alcántara
+ * 
+ * Fecha de creación 11/05/2022
+ */
 public class CartasVista extends JFrame {
 
 	public static final int TOTAL_CARTAS = 16;

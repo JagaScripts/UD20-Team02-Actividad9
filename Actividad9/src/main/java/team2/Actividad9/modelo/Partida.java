@@ -1,6 +1,3 @@
-/**
- * 
- */
 package team2.Actividad9.modelo;
 
 import java.util.ArrayList;
