@@ -3,6 +3,8 @@
  */
 package team2.Actividad9.modelo;
 
+
+
 /**
  * Actividad9 - team2.Actividad9.modelo - Carta
  *
@@ -18,14 +20,31 @@ public class Carta {
      * Ruta al directorio con las imágenes.
      */
     public static final String DIR_IMAGEN
-            = "/Actividad9/src/main/java/team2/Actividad9/Imagenes/";
+            = "../Imagenes/";
     /**
      * Imagen trasera de la carta.
      */
-    public static final String IMAGEN_BLANCA = DIR_IMAGEN + "blanco.JPG";
+    public static final String IMAGEN_BLANCA = DIR_IMAGEN + "blanco.jpg";
     private int valor;
     private String imagen;
     private boolean adivinada;
+    private Partida partida;
+   
+    
+    /**
+     * Constructor de las cartas.
+     *
+     * @param value int valor que define que imagen se asocia a la carta y que
+     * nos sirve para realizar comprobaciones de igualdad de forma simple.
+     * @param game Game partida a la que pertenece la carta.
+     */
+    public Carta(int valor, Partida partida) {
+        this.partida = partida;
+        this.valor = valor;
+        this.imagen = DIR_IMAGEN + valor + ".JPG";
+        this.adivinada = false;
+    }
+
 	/**
 	 * @return the valor
 	 */
@@ -39,13 +58,13 @@ public class Carta {
 		this.valor = valor;
 	}
 	/**
-	 * @return the imageN
+	 * @return the imagen
 	 */
 	public String getImagen() {
 		return imagen;
 	}
 	/**
-	 * @param imageN the imageN to set
+	 * @param imageN the imagen to set
 	 */
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
@@ -63,5 +82,20 @@ public class Carta {
 		this.adivinada = adivinada;
 	}
 
+	/**
+	 * @return the partida
+	 */
+	public Partida getPartida() {
+		return partida;
+	}
+
+	/**
+	 * @param partida the partida to set
+	 */
+	public void setPartida(Partida partida) {
+		this.partida = partida;
+	}
+
+	
     
 }
