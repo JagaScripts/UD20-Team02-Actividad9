@@ -1,15 +1,10 @@
-/**
- * 
- */
 package team2.Actividad9.vista;
 
 import java.awt.Dimension;
 
 import javax.swing.JToggleButton;
 
-import es.seas.unidad3.extras.parejas.model.entities.Card;
-import es.seas.unidad3.extras.parejas.view.components.CardButtonListener;
-
+import team2.Actividad9.modelo.Carta;
 /**
  * Actividad9 - team2.Actividad9.vista - Carta
  *
@@ -21,20 +16,21 @@ import es.seas.unidad3.extras.parejas.view.components.CardButtonListener;
  */
 public class BotonCarta extends JToggleButton {
 
+	 private Carta carta;
 	/**
      * Constructor por defecto que prepara el componente con las propiedades
      * configuradas como necesitamos y que admite una carta como parámetro.
      *
-     * @param card Card.
+     * @param Carta carta.
      */
-    public BotonCarta() {
-    	Dimension dimension = new Dimension(140, 140);
+    public BotonCarta(Carta carta) {
+    	Dimension dimension = new Dimension(150, 150);
         this.setPreferredSize(dimension);
         this.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource(
-                Card.BACK_IMAGE)));
+                carta.IMAGEN_BLANCA)));
         this.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-                card.getImage())));
-        this.addMouseListener(new CardButtonListener());
-        this.setEnabled(card.isGuessed());
+                carta.getImagen())));
+        this.addMouseListener(new BotonCartaListener());
+        this.setEnabled(carta.isAdivinada());
     }
 }
