@@ -5,8 +5,8 @@ package team2.Actividad9.controlador;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Enumeration;
 
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import team2.Actividad9.modelo.Carta;
@@ -38,7 +38,7 @@ public class BotonCartaListener extends MouseAdapter {
             boton.setEnabled(true);
             if (carta.getPartida().getPrimeraSeleccion() == null) {
                 carta.getPartida().setPrimeraSeleccion(carta);
-                this.setPrimerBoton(boton);
+                boton.setPrimerBoton(boton);
             } else if (carta.getPartida().getSegundaSeleccion() == null) {
                 carta.getPartida().setSegundaSeleccion(carta);
             }
@@ -48,23 +48,31 @@ public class BotonCartaListener extends MouseAdapter {
     @Override
     public void mouseExited(MouseEvent e) {
         BotonCarta boton = (BotonCarta) e.getSource();
-        //System.out.println("boton " + boton.);
         Carta carta = boton.getCarta();
         Partida partida = carta.getPartida();
         if (partida.getPrimeraSeleccion() != null && partida.getSegundaSeleccion() != null) {
             if (partida.sonPareja()) {
                 partida.getPrimeraSeleccion().setAdivinada(true);
                 partida.getSegundaSeleccion().setAdivinada(true);
-                partida.sonPareja();
+                partida.sumarAdivinadas();
                 partida.resetearSeleciones();
-                if (partida.isFinished()) {
+                if (partida.aFinalizado()) {
                     JOptionPane.showMessageDialog(null, "Enhorabuena as ganado!!!");
                 }
             } else {
                 partida.getPrimeraSeleccion().setAdivinada(false);
                 partida.getSegundaSeleccion().setAdivinada(false);
-                ((BotonCarta)this.getPrimerBoton()).setEnabled(false);
-                this.setPrimerBoton(null);
+                Enumeration<BotonCarta> enumBotEnumeration =  boton.getBotonesCarta().elements();
+                while (enumBotEnumeration.hasMoreElements()) {
+                	BotonCarta botonCarta = (BotonCarta) enumBotEnumeration.nextElement();
+                	if (botonCarta.getPrimerBoton() != null) {
+						
+                		botonCarta.setEnabled(false);
+                		botonCarta.setPrimerBoton(null);
+                		
+					}
+					
+				}
                 boton.setEnabled(false);
                 partida.resetearSeleciones();
             }

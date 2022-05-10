@@ -4,7 +4,6 @@
 package team2.Actividad9.modelo;
 
 
-
 /**
  * Actividad9 - team2.Actividad9.modelo - Carta
  *
@@ -96,6 +95,16 @@ public class Carta {
 		this.partida = partida;
 	}
 
-	
+	@Override
+    public boolean equals(Object carta) {
+        if (carta == null) {
+            return false;
+        }
+        if (getClass() != carta.getClass()) {
+            return false;
+        }
+        final Carta segundaCarta = (Carta) carta;
+        return this.valor == segundaCarta.valor;
+    }
     
 }

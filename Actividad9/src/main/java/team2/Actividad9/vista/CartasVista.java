@@ -62,7 +62,10 @@ public class CartasVista extends JFrame {
 				posicionY = (j * 150) + 10;
 				botonCarta.setBounds(posicionX, posicionY, 150, 150);
 				botonesCarta.put("" + i + j , botonCarta);
+				botonCarta.setBotonesCarta(botonesCarta);
 				contentPane.add(botonCarta);
+				
+				
 			}
 			
 		}

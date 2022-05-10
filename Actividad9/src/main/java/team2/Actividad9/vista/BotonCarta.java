@@ -1,6 +1,7 @@
 package team2.Actividad9.vista;
 
 import java.awt.Dimension;
+import java.util.Hashtable;
 
 import javax.swing.JToggleButton;
 
@@ -19,6 +20,8 @@ public class BotonCarta extends JToggleButton {
 
 	
 	 private Carta carta;
+	 private Hashtable<String, BotonCarta> botonesCarta;
+	 private BotonCarta primerBoton;
 	/**
      * Constructor por defecto que prepara el componente con las propiedades
      * configuradas como necesitamos y que admite una carta como parámetro.
@@ -65,6 +68,39 @@ public class BotonCarta extends JToggleButton {
         }
         return getCarta().isAdivinada();
     }
+    
+    /**
+     * Getter del primer botón pulsado.
+     *
+     * @return CardButton firstButton.
+     */
+    public BotonCarta getPrimerBoton() {
+        return primerBoton;
+    }
+
+    /**
+     * Setter del primer botón pulsado.
+     *
+     * @param firstButton CardButton.
+     */
+    public void setPrimerBoton(BotonCarta primerBoton) {
+        this.primerBoton = primerBoton;
+    }
+    
+	/**
+	 * @return the botonesCarta
+	 */
+	public Hashtable<String, BotonCarta> getBotonesCarta() {
+		return botonesCarta;
+	}
+	
+	/**
+	 * @param botonesCarta the botonesCarta to set
+	 */
+	public void setBotonesCarta(Hashtable<String, BotonCarta> botonesCarta) {
+		this.botonesCarta = botonesCarta;
+	}
+    
     
     
 }

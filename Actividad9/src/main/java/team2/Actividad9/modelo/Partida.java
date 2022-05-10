@@ -118,7 +118,7 @@ public class Partida {
 	     *
 	     * @return parejasAdivinadas int.
 	     */
-	    public int getparejasAdivinadas() {
+	    public int getParejasAdivinadas() {
 	        return parejasAdivinadas;
 	    }
 
@@ -190,7 +190,7 @@ public class Partida {
 	     * @return boolean true si los pares acertados son igual a la mitad de las
 	     * posiciónes de la matriz.
 	     */
-	    public boolean isFinished() {
+	    public boolean aFinalizado() {
 	        return parejasAdivinadas == tablero.length * tablero.length / 2;
 	    }
 }
